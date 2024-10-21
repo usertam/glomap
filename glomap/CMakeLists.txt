@@ -62,17 +62,8 @@ set(HEADERS
 )
 
 add_library(glomap ${SOURCES} ${HEADERS})
-if(NOT FETCH_COLMAP)
-    target_link_libraries(glomap PUBLIC colmap::colmap)
-else()
-    target_link_libraries(glomap PUBLIC colmap)
-endif()
-
-if(NOT FETCH_POSELIB)
-    target_link_libraries(glomap PUBLIC PoseLib::PoseLib)
-else()
-    target_link_libraries(glomap PUBLIC PoseLib)
-endif()
+target_link_libraries(glomap PUBLIC colmap)
+target_link_libraries(glomap PUBLIC PoseLib)
 
 target_link_libraries(
     glomap
